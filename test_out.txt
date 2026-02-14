@@ -1,0 +1,63 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.2, pytest-7.4.4, pluggy-1.6.0 -- C:\Program Files\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: D:\Donzio_testcase\donizo_engine
+configfile: pyproject.toml
+plugins: anyio-4.4.0, dash-3.1.1, Faker-22.0.0, hypothesis-6.151.6, asyncio-0.23.3, cov-4.1.0
+asyncio: mode=Mode.STRICT
+collecting ... collected 51 items
+
+tests/test_determinism.py::TestDeterminism::test_same_events_same_hash PASSED [  1%]
+tests/test_determinism.py::TestDeterminism::test_audit_logs_identical PASSED [  3%]
+tests/test_determinism.py::TestDeterminism::test_state_files_identical PASSED [  5%]
+tests/test_determinism.py::TestDeterminism::test_replay_matches PASSED   [  7%]
+tests/test_determinism.py::TestDeterminism::test_replay_fails_on_wrong_hash PASSED [  9%]
+tests/test_e2e.py::TestE2E::test_full_pipeline_1000_events PASSED        [ 11%]
+tests/test_e2e.py::TestE2E::test_different_seeds_produce_different_events PASSED [ 13%]
+tests/test_e2e.py::TestE2E::test_same_seed_same_events PASSED            [ 15%]
+tests/test_e2e.py::TestE2E::test_audit_log_has_all_required_fields PASSED [ 17%]
+tests/test_e2e.py::TestE2E::test_no_float_prices_in_output PASSED        [ 19%]
+tests/test_engine.py::TestMedian::test_empty PASSED                      [ 21%]
+tests/test_engine.py::TestMedian::test_single PASSED                     [ 23%]
+tests/test_engine.py::TestMedian::test_odd PASSED                        [ 25%]
+tests/test_engine.py::TestMedian::test_even PASSED                       [ 27%]
+tests/test_engine.py::TestMedian::test_five PASSED                       [ 29%]
+tests/test_engine.py::TestMedian::test_negative_delta PASSED             [ 31%]
+tests/test_engine.py::TestRuleA::test_supplier_eligible_within_1h PASSED [ 33%]
+tests/test_engine.py::TestRuleA::test_supplier_expired_after_1h PASSED   [ 35%]
+tests/test_engine.py::TestRuleA::test_historic_always_eligible PASSED    [ 37%]
+tests/test_engine.py::TestRuleA::test_human_only_when_source_human PASSED [ 39%]
+tests/test_engine.py::TestRuleB::test_human_accepted_uses_human_price PASSED [ 41%]
+tests/test_engine.py::TestRuleB::test_human_rejected_falls_back PASSED   [ 43%]
+tests/test_engine.py::TestRuleB::test_standard_query_uses_supplier_plus_bias PASSED [ 45%]
+tests/test_engine.py::TestRuleB::test_standard_query_falls_back_to_historic PASSED [ 47%]
+tests/test_engine.py::TestRuleB::test_no_data_fallback PASSED            [ 49%]
+tests/test_engine.py::TestRuleC::test_bias_updates_on_accept PASSED      [ 50%]
+tests/test_engine.py::TestRuleC::test_bias_is_median_of_deltas PASSED    [ 52%]
+tests/test_engine.py::TestRuleC::test_rolling_window_keeps_last_5 PASSED [ 54%]
+tests/test_engine.py::TestRuleC::test_no_learning_on_reject PASSED       [ 56%]
+tests/test_engine.py::TestRuleD::test_no_decay_within_7_days PASSED      [ 58%]
+tests/test_engine.py::TestRuleD::test_decay_after_7_days PASSED          [ 60%]
+tests/test_engine.py::TestRuleE::test_anomaly_rejected PASSED            [ 62%]
+tests/test_engine.py::TestRuleE::test_borderline_not_anomaly PASSED      [ 64%]
+tests/test_engine.py::TestRuleE::test_anomaly_does_not_learn PASSED      [ 66%]
+tests/test_engine.py::TestStateHash::test_hash_changes_on_mutation PASSED [ 68%]
+tests/test_engine.py::TestStateHash::test_hash_deterministic PASSED      [ 70%]
+tests/test_engine.py::TestInputValidation::test_duplicate_event_id_raises PASSED [ 72%]
+tests/test_engine.py::TestInputValidation::test_negative_price_raises PASSED [ 74%]
+tests/test_engine.py::TestInputValidation::test_non_human_with_outcome_raises PASSED [ 76%]
+tests/test_engine.py::TestInputValidation::test_zero_price_is_valid PASSED [ 78%]
+tests/test_engine.py::TestInputValidation::test_float_price_raises PASSED [ 80%]
+tests/test_engine.py::TestInputValidation::test_invalid_source_raises PASSED [ 82%]
+tests/test_properties.py::TestPropertyIntegerOnly::test_output_prices_are_int PASSED [ 84%]
+tests/test_properties.py::TestPropertyBiasListSize::test_bias_list_max_5 PASSED [ 86%]
+tests/test_properties.py::TestPropertyDeterminism::test_same_input_same_hash PASSED [ 88%]
+tests/test_properties.py::TestPropertyMedian::test_median_is_int PASSED  [ 90%]
+tests/test_properties.py::TestPropertyCircuitBreaker::test_anomaly_blocks_learning PASSED [ 92%]
+tests/test_properties.py::TestPropertyDecay::test_decay_reduces_bias PASSED [ 94%]
+tests/test_properties.py::TestPropertyHumanAccepted::test_accepted_human_is_final_price PASSED [ 96%]
+tests/test_properties.py::TestPropertyNonHumanFlags::test_non_human_no_human_flags PASSED [ 98%]
+tests/test_properties.py::TestPropertyAuditHashConsistency::test_audit_hash_matches_state PASSED [100%]
+
+============================= 51 passed in 20.66s =============================

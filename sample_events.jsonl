@@ -1,0 +1,3 @@
+{"event_id": "evt_001", "timestamp": 1000, "item_id": "copper_pipe", "source": "SUPPLIER", "price_cents": 1200, "outcome": "NONE"}
+{"event_id": "evt_002", "timestamp": 1100, "item_id": "copper_pipe", "source": "HUMAN", "price_cents": 1300, "outcome": "QUOTE_ACCEPTED"}
+{"event_id": "evt_003", "timestamp": 1200, "item_id": "steel_beam", "source": "HISTORIC", "price_cents": 5000, "outcome": "NONE"}

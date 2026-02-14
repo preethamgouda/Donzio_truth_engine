@@ -1,0 +1,47 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.2, pytest-7.4.4, pluggy-1.6.0 -- C:\Program Files\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: d:\Donzio_testcase\donizo_engine
+plugins: anyio-4.4.0, dash-3.1.1, Faker-22.0.0, hypothesis-6.151.6, asyncio-0.23.3, cov-4.1.0
+asyncio: mode=Mode.STRICT
+collecting ... collected 36 items
+
+tests/test_determinism.py::TestDeterminism::test_same_events_same_hash PASSED [  2%]
+tests/test_determinism.py::TestDeterminism::test_audit_logs_identical PASSED [  5%]
+tests/test_determinism.py::TestDeterminism::test_state_files_identical PASSED [  8%]
+tests/test_determinism.py::TestDeterminism::test_replay_matches PASSED   [ 11%]
+tests/test_determinism.py::TestDeterminism::test_replay_fails_on_wrong_hash PASSED [ 13%]
+tests/test_engine.py::TestMedian::test_empty PASSED                      [ 16%]
+tests/test_engine.py::TestMedian::test_single PASSED                     [ 19%]
+tests/test_engine.py::TestMedian::test_odd PASSED                        [ 22%]
+tests/test_engine.py::TestMedian::test_even PASSED                       [ 25%]
+tests/test_engine.py::TestMedian::test_five PASSED                       [ 27%]
+tests/test_engine.py::TestMedian::test_negative_delta PASSED             [ 30%]
+tests/test_engine.py::TestRuleA::test_supplier_eligible_within_1h PASSED [ 33%]
+tests/test_engine.py::TestRuleA::test_supplier_expired_after_1h PASSED   [ 36%]
+tests/test_engine.py::TestRuleA::test_historic_always_eligible PASSED    [ 38%]
+tests/test_engine.py::TestRuleA::test_human_only_when_source_human PASSED [ 41%]
+tests/test_engine.py::TestRuleB::test_human_accepted_uses_human_price PASSED [ 44%]
+tests/test_engine.py::TestRuleB::test_human_rejected_falls_back PASSED   [ 47%]
+tests/test_engine.py::TestRuleB::test_standard_query_uses_supplier_plus_bias PASSED [ 50%]
+tests/test_engine.py::TestRuleB::test_standard_query_falls_back_to_historic PASSED [ 52%]
+tests/test_engine.py::TestRuleB::test_no_data_fallback PASSED            [ 55%]
+tests/test_engine.py::TestRuleC::test_bias_updates_on_accept PASSED      [ 58%]
+tests/test_engine.py::TestRuleC::test_bias_is_median_of_deltas PASSED    [ 61%]
+tests/test_engine.py::TestRuleC::test_rolling_window_keeps_last_5 PASSED [ 63%]
+tests/test_engine.py::TestRuleC::test_no_learning_on_reject PASSED       [ 66%]
+tests/test_engine.py::TestRuleD::test_no_decay_within_7_days PASSED      [ 69%]
+tests/test_engine.py::TestRuleD::test_decay_after_7_days PASSED          [ 72%]
+tests/test_engine.py::TestRuleE::test_anomaly_rejected PASSED            [ 75%]
+tests/test_engine.py::TestRuleE::test_borderline_not_anomaly PASSED      [ 77%]
+tests/test_engine.py::TestRuleE::test_anomaly_does_not_learn PASSED      [ 80%]
+tests/test_engine.py::TestStateHash::test_hash_changes_on_mutation PASSED [ 83%]
+tests/test_engine.py::TestStateHash::test_hash_deterministic PASSED      [ 86%]
+tests/test_properties.py::TestPropertyIntegerOnly::test_output_prices_are_int PASSED [ 88%]
+tests/test_properties.py::TestPropertyBiasListSize::test_bias_list_max_5 PASSED [ 91%]
+tests/test_properties.py::TestPropertyDeterminism::test_same_input_same_hash PASSED [ 94%]
+tests/test_properties.py::TestPropertyMedian::test_median_is_int PASSED  [ 97%]
+tests/test_properties.py::TestPropertyCircuitBreaker::test_anomaly_blocks_learning PASSED [100%]
+
+============================= 36 passed in 4.17s ==============================
